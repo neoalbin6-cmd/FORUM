@@ -95,6 +95,45 @@ function enableSmoothScrolling(){
     document.documentElement.style.scrollBehavior="smooth";
 
 }
+
+/*==================================================
+  SCROLL PROGRESS
+==================================================*/
+
+function initializeScrollProgress(){
+
+    const progressBar=
+    document.querySelector(".scroll-progress-bar");
+
+    if(!progressBar){
+
+        return;
+
+    }
+
+    window.addEventListener("scroll",()=>{
+
+        const scrollTop=
+        window.scrollY;
+
+        const pageHeight=
+
+        document.documentElement.scrollHeight-
+
+        window.innerHeight;
+
+        const progress=
+
+        (scrollTop/pageHeight)*100;
+
+        progressBar.style.width=
+
+        progress+"%";
+
+    },{passive:true});
+
+}
+
 /*==================================================
   SCROLL REVEAL
 ==================================================*/
