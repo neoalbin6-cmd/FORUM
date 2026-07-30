@@ -93,3 +93,52 @@ function enableSmoothScrolling(){
     document.documentElement.style.scrollBehavior="smooth";
 
 }
+/*==================================================
+  SCROLL REVEAL
+==================================================*/
+
+function initializeScrollReveal(){
+
+    const elements=
+    document.querySelectorAll(".content-section");
+
+    elements.forEach((element,index)=>{
+
+        element.classList.add("reveal");
+
+        const delay=(index%4)+1;
+
+        element.classList.add(`reveal-delay-${delay}`);
+
+    });
+
+    const observer=
+    new IntersectionObserver((entries)=>{
+
+        entries.forEach(entry=>{
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("reveal-visible");
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    },{
+
+        threshold:.15,
+
+        rootMargin:"0px 0px -40px 0px"
+
+    });
+
+    elements.forEach(element=>{
+
+        observer.observe(element);
+
+    });
+
+}
