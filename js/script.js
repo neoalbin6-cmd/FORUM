@@ -47,6 +47,11 @@ function initializeLoader(){
 
             loader.classList.add("loader-hidden");
 
+setTimeout(()=>{
+
+    loader.remove();
+
+},900);
         },1200);
 
     });
