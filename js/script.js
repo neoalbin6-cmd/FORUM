@@ -24,7 +24,7 @@ function initializeWebsite(){
 
     enableSmoothScrolling();
 
-    initializeScrollReveal();
+    initializeScrollProgress();
 
 }
 
