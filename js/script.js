@@ -13,10 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /*==================================================
-  INITIALIZER
+  INITIALIZE
 ==================================================*/
 
 function initializeWebsite(){
+
+    initializeLoader();
 
     highlightCurrentPage();
 
@@ -26,23 +28,47 @@ function initializeWebsite(){
 
 
 /*==================================================
-  ACTIVE NAVIGATION
+  PAGE LOADER
+==================================================*/
+
+function initializeLoader(){
+
+    const loader=document.querySelector(".page-loader");
+
+    if(!loader){
+
+        return;
+
+    }
+
+    window.addEventListener("load",()=>{
+
+        setTimeout(()=>{
+
+            loader.classList.add("loader-hidden");
+
+        },1200);
+
+    });
+
+}
+
+
+/*==================================================
+  ACTIVE PAGE
 ==================================================*/
 
 function highlightCurrentPage(){
 
-    const currentPage =
-        window.location.pathname.split("/").pop() || "index.html";
+    const currentPage=
+    window.location.pathname.split("/").pop()||"index.html";
 
-    const links =
-        document.querySelectorAll(".main-navigation a");
+    const links=
+    document.querySelectorAll(".main-navigation a");
 
     links.forEach(link=>{
 
-        const page =
-            link.getAttribute("href");
-
-        if(page===currentPage){
+        if(link.getAttribute("href")===currentPage){
 
             link.classList.add("active-page");
 
