@@ -1,0 +1,1193 @@
+/*==================================================
+  FORUM TECHNOLOGIES
+  STYLE.CSS
+  PART 1
+  Foundation • Navigation • Header • Introduction
+==================================================*/
+
+/*==================================================
+  1. CSS VARIABLES
+==================================================*/
+
+:root{
+
+    /* Brand Colors */
+    --color-primary:#204d91;
+    --color-primary-dark:#183f83;
+    --color-primary-light:#3f72ba;
+
+    --color-gold:#e8c66a;
+    --color-gold-dark:#b08b54;
+    --color-gold-light:#f3ddb0;
+
+    --color-text:#324b69;
+    --color-heading:#24487c;
+
+    --color-white:#ffffff;
+
+    /* Background */
+    --bg-start:#eef5ff;
+    --bg-light:#f5f9ff;
+    --bg-middle:#d8e8fb;
+    --bg-end:#cddff7;
+
+    /* Shadows */
+    --shadow-light:0 8px 20px rgba(0,0,0,.20);
+    --shadow-medium:0 10px 25px rgba(0,0,0,.15);
+    --shadow-heavy:0 15px 30px rgba(0,0,0,.25);
+
+    /* Border Radius */
+    --radius-small:10px;
+    --radius-medium:18px;
+    --radius-large:40px;
+
+    /* Container Width */
+    --container-width:1200px;
+
+}
+
+
+/*==================================================
+  2. RESET
+==================================================*/
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+a{
+    text-decoration:none;
+}
+
+
+/*==================================================
+  3. BODY
+==================================================*/
+
+body{
+
+    padding-top:60px;
+    padding-bottom:50px;
+
+    overflow-x:hidden;
+
+    font-family:Calibri,sans-serif;
+
+    background:
+    linear-gradient(
+    180deg,
+    var(--bg-start) 0%,
+    #e4effd 18%,
+    var(--bg-middle) 38%,
+    var(--bg-end) 60%,
+    #dce9fa 82%,
+    var(--bg-light) 100%);
+
+    background-attachment:fixed;
+
+}
+
+
+/*==================================================
+  4. BACKGROUND EFFECTS
+==================================================*/
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-2;
+
+    background:
+
+    radial-gradient(circle at 15% 20%,
+    rgba(255,215,120,.18),
+    transparent 28%),
+
+    radial-gradient(circle at 82% 30%,
+    rgba(255,228,150,.16),
+    transparent 32%),
+
+    radial-gradient(circle at 50% 90%,
+    rgba(90,140,255,.10),
+    transparent 45%),
+
+    linear-gradient(
+    rgba(255,255,255,.05) 1px,
+    transparent 1px),
+
+    linear-gradient(
+    90deg,
+    rgba(255,255,255,.05) 1px,
+    transparent 1px);
+
+    background-size:
+
+    auto,
+    auto,
+    auto,
+    55px 55px,
+    55px 55px;
+
+    animation:backgroundWave 18s ease-in-out infinite alternate;
+
+}
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-1;
+
+    pointer-events:none;
+
+    filter:blur(80px);
+
+    background:
+
+    radial-gradient(circle at 25% 35%,
+    rgba(255,220,120,.22),
+    transparent 22%),
+
+    radial-gradient(circle at 75% 65%,
+    rgba(255,230,170,.18),
+    transparent 28%),
+
+    radial-gradient(circle at 55% 15%,
+    rgba(255,255,255,.25),
+    transparent 24%);
+
+    animation:goldGlow 12s ease-in-out infinite alternate;
+
+}
+
+
+/*==================================================
+  5. MAIN NAVIGATION
+==================================================*/
+
+.main-navigation{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:60px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-start;
+
+    gap:18px;
+
+    padding-inline:25px;
+
+    z-index:9999;
+
+    background:
+    linear-gradient(
+    180deg,
+    #fafcff,
+    #dbe5f4,
+    #bccbdd);
+
+    border-bottom:2px solid rgba(255,255,255,.65);
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,.22),
+    inset 0 1px 0 white,
+    inset 0 -2px 6px rgba(0,0,0,.08);
+
+}
+
+
+/* Navigation Links */
+
+.main-navigation a{
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:120px;
+
+    height:40px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+
+    color:var(--color-primary);
+
+    border-radius:40px;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    background:
+    linear-gradient(
+    180deg,
+    #ffffff,
+    #f4f8ff 45%,
+    #dce7f7);
+
+    border:1px solid rgba(255,255,255,.90);
+
+    box-shadow:
+
+    0 2px 0 #ffffff,
+
+    0 8px 18px rgba(0,0,0,.22),
+
+    inset 0 2px 3px rgba(255,255,255,.95),
+
+    inset 0 -4px 8px rgba(0,0,0,.08);
+
+}
+
+
+/* Shine Effect */
+
+.main-navigation a::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-60%;
+
+    left:-120%;
+
+    width:45%;
+
+    height:220%;
+
+    transform:rotate(25deg);
+
+    transition:.8s;
+
+    background:
+    linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.95),
+    transparent);
+
+}
+
+.main-navigation a:hover::before{
+
+    left:160%;
+
+}
+
+
+/* Glass Overlay */
+
+.main-navigation a::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:40px;
+
+    pointer-events:none;
+
+    box-shadow:
+
+    inset 0 2px 1px white,
+
+    inset 0 -3px 5px rgba(0,0,0,.15);
+
+}
+
+
+/* Hover */
+
+.main-navigation a:hover{
+
+    color:white;
+
+    transform:
+    translateY(-4px)
+    scale(1.05);
+
+    background:
+    linear-gradient(
+    180deg,
+    #4f77bf,
+    #2f5fae,
+    var(--color-primary-dark));
+
+    box-shadow:
+
+    0 0 12px rgba(108,164,255,.70),
+
+    0 14px 28px rgba(0,0,0,.35),
+
+    inset 0 2px 3px rgba(255,255,255,.25);
+
+}
+
+
+/* Active */
+
+.main-navigation a:active{
+
+    transform:
+    translateY(1px)
+    scale(.98);
+
+    box-shadow:
+    inset 0 4px 10px rgba(0,0,0,.25);
+
+}
+
+
+/*==================================================
+  6. SITE HEADER
+==================================================*/
+
+.site-header{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding-block:35px;
+
+    background:
+    linear-gradient(
+    180deg,
+    #ffffff,
+    #edf3fb);
+
+    border-bottom:3px solid #9b7a45;
+
+    box-shadow:var(--shadow-medium);
+
+}
+
+
+.header-container{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+
+.company-name{
+
+    margin:0;
+
+    font-family:"Times New Roman",serif;
+
+    font-size:clamp(2.2rem,4vw,3.25rem);
+
+    font-weight:bold;
+
+    letter-spacing:6px;
+
+    color:#1b4d9a;
+
+    text-shadow:
+
+    0 1px white,
+
+    0 3px 8px rgba(0,0,0,.15);
+
+}
+
+
+.header-divider{
+
+    width:320px;
+
+    height:3px;
+
+    margin:12px 0;
+
+    border-radius:30px;
+
+    background:
+    linear-gradient(
+    90deg,
+    transparent,
+    #c98324,
+    var(--color-gold),
+    #c98324,
+    transparent);
+
+}
+
+
+.company-tagline{
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    letter-spacing:5px;
+
+    color:#647b96;
+
+}
+
+
+/*==================================================
+  7. COMPANY OVERVIEW
+==================================================*/
+
+.company-overview{
+
+    padding:18px 40px;
+
+    background:
+    linear-gradient(
+    90deg,
+    #8d6b38,
+    #c29a58,
+    #f3ddb0,
+    #c29a58,
+    #8d6b38);
+
+    box-shadow:var(--shadow-light);
+
+}
+
+
+.company-description{
+
+    max-width:var(--container-width);
+
+    margin-inline:auto;
+
+    color:#05275c;
+
+    font-size:23px;
+
+    line-height:1.8;
+
+    font-weight:600;
+
+}
+/*==================================================
+  8. CONTENT SECTIONS
+==================================================*/
+
+.content-section{
+
+    position:relative;
+
+    overflow:hidden;
+
+    max-width:1100px;
+
+    margin:70px auto;
+
+    padding:45px;
+
+    background:
+    linear-gradient(
+    145deg,
+    #fffefe,
+    #fdfdfd,
+    #f7f8fb);
+
+    border:1px solid rgba(255,255,255,.95);
+
+    box-shadow:
+
+    -16px -16px 35px rgba(255,255,255,.95),
+
+     16px 16px 35px rgba(155,175,205,.35),
+
+     0 8px 18px rgba(70,90,130,.12),
+
+     inset 2px 2px 4px rgba(255,255,255,.95),
+
+     inset -3px -3px 5px rgba(170,180,205,.18);
+
+    transition:
+    transform .45s,
+    box-shadow .45s;
+
+}
+
+
+/* Shine Animation */
+
+.content-section::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-140%;
+
+    width:60%;
+
+    height:100%;
+
+    transform:skewX(-25deg);
+
+    transition:1.2s;
+
+    background:
+    linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.12),
+    transparent);
+
+}
+
+
+.content-section:hover::before{
+
+    left:170%;
+
+}
+
+
+/* Floating Effect */
+
+.content-section:hover{
+
+    transform:
+    translateY(-12px)
+    scale(1.02);
+
+    box-shadow:
+
+    -14px -14px 35px rgba(255,255,255,1),
+
+     20px 20px 40px rgba(110,135,170,.35),
+
+     0 18px 35px rgba(25,65,120,.15),
+
+     inset 0 2px 3px rgba(255,255,255,.95);
+
+}
+
+
+/*==================================================
+  SECTION TITLE
+==================================================*/
+
+.section-title{
+
+    margin-bottom:18px;
+
+    padding-left:18px;
+
+    border-left:8px solid var(--color-gold-dark);
+
+    font-family:"Times New Roman",serif;
+
+    font-size:38px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+    color:var(--color-heading);
+
+    text-shadow:
+
+     1px 1px 0 white,
+
+    -1px -1px 0 rgba(120,140,170,.25);
+
+}
+
+
+/*==================================================
+  LATIN MOTTO
+==================================================*/
+
+.latin-motto{
+
+    margin-bottom:22px;
+
+    text-align:center;
+
+    font-family:"Palatino Linotype",serif;
+
+    font-size:23px;
+
+    font-style:italic;
+
+    color:#7f6738;
+
+    text-shadow:
+
+     1px 1px white,
+
+    -1px -1px rgba(120,120,120,.18);
+
+}
+
+
+/*==================================================
+  SECTION PARAGRAPHS
+==================================================*/
+
+.section-text{
+
+    font-size:20px;
+
+    line-height:2;
+
+    text-align:justify;
+
+    color:var(--color-text);
+
+    text-shadow:
+
+     1px 1px rgba(255,255,255,.95),
+
+    -1px -1px rgba(110,130,160,.15);
+
+}
+
+
+/*==================================================
+  CONTACT SECTION
+==================================================*/
+
+.contact-grid{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    align-items:flex-start;
+
+    gap:120px;
+
+    margin-top:18px;
+
+}
+
+
+/* Address */
+
+.company-address{
+
+    font-size:19px;
+
+    line-height:1.9;
+
+    color:var(--color-text);
+
+    text-shadow:
+
+     1px 1px rgba(255,255,255,.95),
+
+    -1px -1px rgba(110,130,160,.15);
+
+}
+
+
+/* Contact Details */
+
+.contact-information{
+
+    font-size:19px;
+
+    line-height:1.9;
+
+    color:var(--color-text);
+
+    text-shadow:
+
+     1px 1px rgba(255,255,255,.95),
+
+    -1px -1px rgba(110,130,160,.15);
+
+}
+
+
+.contact-information p{
+
+    margin-bottom:14px;
+
+}
+
+
+.contact-information a{
+
+    color:#1c56a6;
+
+    font-weight:bold;
+
+    transition:color .3s;
+
+}
+
+
+.contact-information a:hover{
+
+    color:var(--color-gold);
+
+}
+
+
+/* Labels */
+
+.contact-label{
+
+    color:#9b6d2e;
+
+    font-weight:bold;
+
+}
+
+
+/*==================================================
+  INFORMATION CARD
+==================================================*/
+
+.info-box{
+
+    padding:30px;
+
+    border-left:6px solid #af8350;
+
+    border-radius:18px;
+
+    background:
+    linear-gradient(
+    160deg,
+    #204d91,
+    #3f72ba,
+    #5d93d6);
+
+    box-shadow:var(--shadow-heavy);
+
+}
+
+
+.info-box p{
+
+    margin:14px 0;
+
+    color:white;
+
+    font-size:19px;
+
+}
+
+
+.info-box span{
+
+    display:inline-block;
+
+    width:180px;
+
+    color:gold;
+
+    font-weight:bold;
+
+}
+
+
+/*==================================================
+  GENERAL LISTS
+==================================================*/
+
+.list{
+
+    font-size:19px;
+
+    line-height:2;
+
+    color:#173d72;
+
+}
+
+
+.list li{
+
+    margin-bottom:8px;
+
+}
+/*==================================================
+  11. SITE FOOTER
+==================================================*/
+
+.site-footer{
+
+    position:fixed;
+
+    inset-inline:0;
+
+    bottom:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:100%;
+
+    height:40px;
+
+    background:
+    linear-gradient(
+    180deg,
+    #ffffff,
+    #dfe8f5);
+
+    border-top:3px solid var(--color-gold-dark);
+
+    box-shadow:
+    0 -5px 15px rgba(0,0,0,.15);
+
+    z-index:999;
+}
+
+
+.footer-title{
+
+    margin:0;
+
+    font-family:"Times New Roman",serif;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    letter-spacing:4px;
+
+    color:var(--color-primary);
+
+}
+
+
+/*==================================================
+  12. ANIMATIONS
+==================================================*/
+
+@keyframes backgroundWave{
+
+    0%{
+
+        transform:
+        translateY(0)
+        scale(1);
+
+        filter:brightness(1);
+
+    }
+
+    50%{
+
+        transform:
+        translateY(-18px)
+        scale(1.03);
+
+        filter:brightness(1.08);
+
+    }
+
+    100%{
+
+        transform:
+        translateY(12px)
+        scale(1.02);
+
+        filter:brightness(1.03);
+
+    }
+
+}
+
+
+@keyframes goldGlow{
+
+    0%{
+
+        transform:
+        translate(-40px,-25px);
+
+        opacity:.55;
+
+    }
+
+    50%{
+
+        transform:
+        translate(30px,20px);
+
+        opacity:.90;
+
+    }
+
+    100%{
+
+        transform:
+        translate(-20px,40px);
+
+        opacity:.65;
+
+    }
+
+}
+
+
+
+/*==================================================
+  13. RESPONSIVE DESIGN
+==================================================*/
+
+@media (max-width:768px){
+
+/*---------- Navigation ----------*/
+
+.main-navigation{
+
+    justify-content:center;
+
+    gap:8px;
+
+    padding-inline:8px;
+
+    height:58px;
+
+}
+
+.main-navigation a{
+
+    width:75px;
+
+    height:34px;
+
+    font-size:12px;
+
+    letter-spacing:.5px;
+
+}
+
+
+/*---------- Header ----------*/
+
+.site-header{
+
+    padding-block:25px;
+
+}
+
+.company-name{
+
+    font-size:clamp(1.8rem,7vw,2rem);
+
+    letter-spacing:2px;
+
+    text-align:center;
+
+}
+
+.header-divider{
+
+    width:220px;
+
+}
+
+.company-tagline{
+
+    font-size:14px;
+
+    letter-spacing:2px;
+
+    text-align:center;
+
+}
+
+
+/*---------- Introduction ----------*/
+
+.company-overview{
+
+    padding:16px 20px;
+
+}
+
+.company-description{
+
+    font-size:18px;
+
+    text-align:center;
+
+}
+
+
+/*---------- Content Sections ----------*/
+
+.content-section{
+
+    margin:25px 15px;
+
+    padding:25px;
+
+}
+
+.section-title{
+
+    font-size:30px;
+
+}
+
+.latin-motto{
+
+    font-size:19px;
+
+}
+
+.section-text{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+}
+
+
+/*---------- Contact ----------*/
+
+.contact-grid{
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.company-address,
+
+.contact-information{
+
+    font-size:17px;
+
+}
+
+
+/*---------- Information Card ----------*/
+
+.info-box{
+
+    padding:22px;
+
+}
+
+.info-box span{
+
+    width:auto;
+
+    display:block;
+
+    margin-bottom:5px;
+
+}
+
+
+/*---------- Footer ----------*/
+
+.footer-title{
+
+    font-size:18px;
+
+    letter-spacing:2px;
+
+}
+
+}
+
+
+
+/*==================================================
+  14. LARGE SCREEN OPTIMIZATION
+==================================================*/
+
+@media (min-width:1600px){
+
+.content-section{
+
+    max-width:1200px;
+
+}
+
+.company-description{
+
+    max-width:1300px;
+
+}
+
+}
+
+
+
+/*==================================================
+  15. REDUCED MOTION SUPPORT
+==================================================*/
+
+@media (prefers-reduced-motion:reduce){
+
+*,
+*::before,
+*::after{
+
+    animation:none !important;
+
+    transition:none !important;
+
+    scroll-behavior:auto !important;
+
+}
+
+}
