@@ -1,0 +1,1302 @@
+/*==================================================
+  FORUM TECHNOLOGIES
+  TAKUMI (匠) THEME
+  PART 1
+==================================================*/
+
+
+/*==================================================
+  1. CSS VARIABLES
+==================================================*/
+
+:root{
+
+    /*==============================================
+      JAPANESE COLOR PALETTE
+    ==============================================*/
+
+    /* Japanese Indigo */
+    --color-primary:#274156;
+    --color-primary-dark:#1E3344;
+    --color-primary-light:#45627A;
+
+    /* Antique Bronze */
+    --color-gold:#C39A63;
+    --color-gold-dark:#8E6A3B;
+    --color-gold-light:#D8C3A5;
+
+    /* Sumi Ink */
+    --color-text:#404442;
+    --color-heading:#2F4A56;
+
+    /* Washi Paper */
+    --color-white:#F9F7F2;
+
+    /* Background */
+    --bg-start:#F8F5EF;
+    --bg-light:#F3F0EA;
+    --bg-middle:#E8E3DA;
+    --bg-end:#DDD7CE;
+
+    /* Shadows */
+    --shadow-light:0 8px 20px rgba(0,0,0,.20);
+    --shadow-medium:0 10px 25px rgba(0,0,0,.15);
+    --shadow-heavy:0 15px 30px rgba(0,0,0,.25);
+
+    /* Radius */
+
+    --radius-small:10px;
+    --radius-medium:18px;
+    --radius-large:40px;
+
+    /* Layout */
+
+    --container-width:1200px;
+
+}
+
+
+/*==================================================
+  2. RESET
+==================================================*/
+
+*,
+*::before,
+*::after{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+img{
+
+    display:block;
+    max-width:100%;
+
+}
+
+a{
+
+    text-decoration:none;
+
+}
+
+
+/*==================================================
+  3. BODY
+==================================================*/
+
+body{
+
+    padding-top:60px;
+    padding-bottom:50px;
+
+    overflow-x:hidden;
+
+    font-family:
+    "Segoe UI",
+    Calibri,
+    sans-serif;
+
+    background:
+
+    linear-gradient(
+
+    180deg,
+
+    var(--bg-start) 0%,
+
+    #F2EEE7 20%,
+
+    var(--bg-middle) 45%,
+
+    var(--bg-end) 70%,
+
+    #ECE8E0 88%,
+
+    var(--bg-light) 100%);
+
+    background-attachment:fixed;
+
+}
+
+
+/*==================================================
+  4. BACKGROUND EFFECTS
+==================================================*/
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-2;
+
+    background:
+
+    radial-gradient(
+    circle at 18% 20%,
+    rgba(195,154,99,.12),
+    transparent 28%),
+
+    radial-gradient(
+    circle at 82% 28%,
+    rgba(105,125,145,.10),
+    transparent 30%),
+
+    radial-gradient(
+    circle at 52% 92%,
+    rgba(120,132,120,.08),
+    transparent 45%),
+
+    linear-gradient(
+    rgba(255,255,255,.04) 1px,
+    transparent 1px),
+
+    linear-gradient(
+    90deg,
+    rgba(255,255,255,.04) 1px,
+    transparent 1px);
+
+    background-size:
+
+    auto,
+    auto,
+    auto,
+    55px 55px,
+    55px 55px;
+
+    animation:
+    backgroundWave 18s ease-in-out infinite alternate;
+
+}
+
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-1;
+
+    pointer-events:none;
+
+    filter:blur(90px);
+
+    background:
+
+    radial-gradient(
+    circle at 30% 35%,
+    rgba(195,154,99,.16),
+    transparent 24%),
+
+    radial-gradient(
+    circle at 72% 65%,
+    rgba(75,95,110,.10),
+    transparent 30%),
+
+    radial-gradient(
+    circle at 55% 12%,
+    rgba(255,255,255,.18),
+    transparent 22%);
+
+    animation:
+    goldGlow 12s ease-in-out infinite alternate;
+
+}
+
+
+/*==================================================
+  5. MAIN NAVIGATION
+==================================================*/
+
+.main-navigation{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:60px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-start;
+
+    gap:18px;
+
+    padding-inline:25px;
+
+    z-index:9999;
+
+    /* Japanese Charcoal Lacquer */
+
+    background:
+
+    linear-gradient(
+
+    180deg,
+
+    #3D4340,
+
+    #2F3431,
+
+    #242826);
+
+    border-bottom:
+
+    2px solid rgba(255,255,255,.12);
+
+    box-shadow:
+
+    0 8px 25px rgba(0,0,0,.30),
+
+    inset 0 1px 0 rgba(255,255,255,.08),
+
+    inset 0 -2px 6px rgba(0,0,0,.25);
+
+}
+
+
+/*==================================================
+  NAVIGATION BUTTONS
+
+  (UNCHANGED)
+==================================================*/
+
+.main-navigation a{
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    width:120px;
+
+    height:40px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+
+    color:var(--color-primary);
+
+    border-radius:40px;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    background:
+
+    linear-gradient(
+
+    180deg,
+
+    #ffffff,
+
+    #f4f8ff 45%,
+
+    #dce7f7);
+
+    border:1px solid rgba(255,255,255,.90);
+
+    box-shadow:
+
+    0 2px 0 #ffffff,
+
+    0 8px 18px rgba(0,0,0,.22),
+
+    inset 0 2px 3px rgba(255,255,255,.95),
+
+    inset 0 -4px 8px rgba(0,0,0,.08);
+
+}
+
+
+/*==================================================
+  6. SITE HEADER
+==================================================*/
+
+.site-header{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding-block:35px;
+
+    /* Washi Paper */
+
+    background:
+
+    linear-gradient(
+
+    180deg,
+
+    #FAF8F4,
+
+    #F1ECE4);
+
+    border-bottom:
+
+    3px solid var(--color-gold-dark);
+
+    box-shadow:var(--shadow-medium);
+
+}
+
+
+.header-container{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+
+/*==================================================
+  COMPANY NAME
+==================================================*/
+
+.company-name{
+
+    margin:0;
+
+    font-family:
+
+    Georgia,
+
+    "Palatino Linotype",
+
+    "Times New Roman",
+
+    serif;
+
+    font-size:clamp(2.2rem,4vw,3.25rem);
+
+    font-weight:bold;
+
+    letter-spacing:6px;
+
+    color:var(--color-primary);
+
+    text-shadow:
+
+    0 1px white,
+
+    0 3px 8px rgba(0,0,0,.15);
+
+}
+
+
+/*==================================================
+  DIVIDER
+==================================================*/
+
+.header-divider{
+
+    width:320px;
+
+    height:3px;
+
+    margin:12px 0;
+
+    border-radius:30px;
+
+    background:
+
+    linear-gradient(
+
+    90deg,
+
+    transparent,
+
+    #8E6A3B,
+
+    #C39A63,
+
+    #8E6A3B,
+
+    transparent);
+
+}
+
+
+/*==================================================
+  TAGLINE
+==================================================*/
+
+.company-tagline{
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    letter-spacing:5px;
+
+    color:#6B716B;
+
+}
+
+
+/*==================================================
+  COMPANY OVERVIEW
+==================================================*/
+
+.company-overview{
+
+    padding:18px 40px;
+
+    background:
+
+    linear-gradient(
+
+    90deg,
+
+    #7A5C3A,
+
+    #A67C52,
+
+    #D8C3A5,
+
+    #A67C52,
+
+    #7A5C3A);
+
+    box-shadow:var(--shadow-light);
+
+}
+
+
+.company-description{
+
+    max-width:var(--container-width);
+
+    margin-inline:auto;
+
+    color:#2F3A38;
+
+    font-size:23px;
+
+    line-height:1.8;
+
+    font-weight:600;
+
+}
+/*==================================================
+  8. CONTENT SECTIONS
+==================================================*/
+
+.content-section{
+
+    position:relative;
+
+    overflow:hidden;
+
+    max-width:1100px;
+
+    margin:70px auto;
+
+    padding:45px;
+
+    /* Warm Washi Paper */
+
+    background:
+    linear-gradient(
+    145deg,
+    #FCFBF8,
+    #F8F5EF,
+    #F3EFE7);
+
+    border:1px solid rgba(255,255,255,.95);
+
+    /* ORIGINAL SHADOWS (UNCHANGED) */
+
+    box-shadow:
+
+    -16px -16px 35px rgba(255,255,255,.95),
+
+     16px 16px 35px rgba(155,175,205,.35),
+
+     0 8px 18px rgba(70,90,130,.12),
+
+     inset 2px 2px 4px rgba(255,255,255,.95),
+
+     inset -3px -3px 5px rgba(170,180,205,.18);
+
+    transition:
+    transform .45s,
+    box-shadow .45s;
+
+}
+
+
+/*==================================================
+  PAPER SHINE
+==================================================*/
+
+.content-section::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-140%;
+
+    width:60%;
+
+    height:100%;
+
+    transform:skewX(-25deg);
+
+    transition:1.2s;
+
+    background:
+    linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.12),
+    transparent);
+
+}
+
+
+.content-section:hover::before{
+
+    left:170%;
+
+}
+
+
+/*==================================================
+  HOVER
+==================================================*/
+
+.content-section:hover{
+
+    transform:
+    translateY(-12px)
+    scale(1.02);
+
+    /* ORIGINAL SHADOWS */
+
+    box-shadow:
+
+    -14px -14px 35px rgba(255,255,255,1),
+
+     20px 20px 40px rgba(110,135,170,.35),
+
+     0 18px 35px rgba(25,65,120,.15),
+
+     inset 0 2px 3px rgba(255,255,255,.95);
+
+}
+
+
+
+/*==================================================
+  SECTION TITLE
+==================================================*/
+
+.section-title{
+
+    margin-bottom:18px;
+
+    padding-left:18px;
+
+    border-left:8px solid #8E6A3B;
+
+    font-family:
+
+    Georgia,
+
+    "Palatino Linotype",
+
+    "Times New Roman",
+
+    serif;
+
+    font-size:38px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+    color:#30485A;
+
+    text-shadow:
+
+    1px 1px 0 rgba(255,255,255,.95),
+
+   -1px -1px 0 rgba(90,90,90,.10);
+
+}
+
+
+
+/*==================================================
+  LATIN MOTTO
+==================================================*/
+
+.latin-motto{
+
+    margin-bottom:22px;
+
+    text-align:center;
+
+    font-family:
+
+    "Palatino Linotype",
+
+    Georgia,
+
+    serif;
+
+    font-size:23px;
+
+    font-style:italic;
+
+    color:#6B5848;
+
+    text-shadow:
+
+    1px 1px rgba(255,255,255,.90),
+
+   -1px -1px rgba(120,120,120,.15);
+
+}
+
+
+
+/*==================================================
+  SECTION TEXT
+==================================================*/
+
+.section-text{
+
+    font-family:
+
+    "Segoe UI",
+
+    Calibri,
+
+    sans-serif;
+
+    font-size:20px;
+
+    line-height:2;
+
+    text-align:justify;
+
+    color:#414745;
+
+    text-shadow:
+
+    1px 1px rgba(255,255,255,.90),
+
+   -1px -1px rgba(120,120,120,.08);
+
+}
+
+
+
+/*==================================================
+  CONTACT GRID
+==================================================*/
+
+.contact-grid{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    align-items:flex-start;
+
+    gap:120px;
+
+    margin-top:18px;
+
+}
+
+
+
+/*==================================================
+  ADDRESS
+==================================================*/
+
+.company-address{
+
+    font-family:
+
+    "Segoe UI",
+
+    Calibri,
+
+    sans-serif;
+
+    font-size:19px;
+
+    line-height:1.9;
+
+    color:#414745;
+
+    text-shadow:
+
+    1px 1px rgba(255,255,255,.90),
+
+   -1px -1px rgba(120,120,120,.08);
+
+}
+
+
+
+/*==================================================
+  CONTACT INFORMATION
+==================================================*/
+
+.contact-information{
+
+    font-family:
+
+    "Segoe UI",
+
+    Calibri,
+
+    sans-serif;
+
+    font-size:19px;
+
+    line-height:1.9;
+
+    color:#414745;
+
+    text-shadow:
+
+    1px 1px rgba(255,255,255,.90),
+
+   -1px -1px rgba(120,120,120,.08);
+
+}
+
+
+.contact-information p{
+
+    margin-bottom:14px;
+
+}
+
+
+
+/*==================================================
+  LINKS
+==================================================*/
+
+.contact-information a{
+
+    color:#35506A;
+
+    font-weight:bold;
+
+    transition:color .30s;
+
+}
+
+
+.contact-information a:hover{
+
+    color:#C39A63;
+
+}
+
+
+
+/*==================================================
+  LABELS
+==================================================*/
+
+.contact-label{
+
+    color:#8E6A3B;
+
+    font-weight:bold;
+
+}
+
+
+
+/*==================================================
+  INFORMATION BOX
+==================================================*/
+
+.info-box{
+
+    padding:30px;
+
+    border-left:6px solid #8E6A3B;
+
+    border-radius:18px;
+
+    background:
+
+    linear-gradient(
+    160deg,
+
+    #2E4656,
+
+    #415C70,
+
+    #597488);
+
+    /* ORIGINAL SHADOW */
+
+    box-shadow:var(--shadow-heavy);
+
+}
+
+
+.info-box p{
+
+    margin:14px 0;
+
+    color:#F9F7F2;
+
+    font-size:19px;
+
+}
+
+
+.info-box span{
+
+    display:inline-block;
+
+    width:180px;
+
+    color:#D4B27B;
+
+    font-weight:bold;
+
+}
+
+
+
+/*==================================================
+  LISTS
+==================================================*/
+
+.list{
+
+    font-family:
+
+    "Segoe UI",
+
+    Calibri,
+
+    sans-serif;
+
+    font-size:19px;
+
+    line-height:2;
+
+    color:#3B4340;
+
+}
+
+
+.list li{
+
+    margin-bottom:8px;
+
+}
+/*==================================================
+  11. SITE FOOTER
+==================================================*/
+
+.site-footer{
+
+    position:fixed;
+
+    inset-inline:0;
+
+    bottom:0;
+
+    width:100%;
+
+    height:40px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    /* Japanese Washi Paper */
+
+    background:
+
+    linear-gradient(
+    180deg,
+    #F8F6F2,
+    #ECE7DE);
+
+    border-top:3px solid #8E6A3B;
+
+    box-shadow:
+    0 -5px 15px rgba(0,0,0,.15);
+
+    z-index:999;
+
+}
+
+
+.footer-title{
+
+    margin:0;
+
+    font-family:
+
+    Georgia,
+
+    "Palatino Linotype",
+
+    "Times New Roman",
+
+    serif;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    letter-spacing:4px;
+
+    color:#2F4A56;
+
+}
+
+
+
+/*==================================================
+  12. ANIMATIONS
+==================================================*/
+
+@keyframes backgroundWave{
+
+    0%{
+
+        transform:
+        translateY(0)
+        scale(1);
+
+        filter:brightness(1);
+
+    }
+
+    50%{
+
+        transform:
+        translateY(-18px)
+        scale(1.03);
+
+        filter:brightness(1.04);
+
+    }
+
+    100%{
+
+        transform:
+        translateY(12px)
+        scale(1.02);
+
+        filter:brightness(1.02);
+
+    }
+
+}
+
+
+
+@keyframes goldGlow{
+
+    0%{
+
+        transform:
+        translate(-40px,-25px);
+
+        opacity:.45;
+
+    }
+
+    50%{
+
+        transform:
+        translate(30px,20px);
+
+        opacity:.70;
+
+    }
+
+    100%{
+
+        transform:
+        translate(-20px,40px);
+
+        opacity:.50;
+
+    }
+
+}
+
+
+
+/*==================================================
+  13. RESPONSIVE DESIGN
+==================================================*/
+
+@media (max-width:768px){
+
+/*=========================
+  Navigation
+=========================*/
+
+.main-navigation{
+
+    justify-content:center;
+
+    gap:8px;
+
+    padding-inline:8px;
+
+    height:58px;
+
+}
+
+.main-navigation a{
+
+    width:75px;
+
+    height:34px;
+
+    font-size:12px;
+
+    letter-spacing:.5px;
+
+}
+
+
+
+/*=========================
+  Header
+=========================*/
+
+.site-header{
+
+    padding-block:24px;
+
+}
+
+.company-name{
+
+    font-size:clamp(1.8rem,7vw,2rem);
+
+    letter-spacing:2px;
+
+    text-align:center;
+
+}
+
+.header-divider{
+
+    width:220px;
+
+}
+
+.company-tagline{
+
+    font-size:14px;
+
+    letter-spacing:2px;
+
+}
+
+
+
+/*=========================
+  Overview
+=========================*/
+
+.company-overview{
+
+    padding:16px 20px;
+
+}
+
+.company-description{
+
+    font-size:18px;
+
+    text-align:center;
+
+}
+
+
+
+/*=========================
+  Sections
+=========================*/
+
+.content-section{
+
+    margin:25px 15px;
+
+    padding:25px;
+
+}
+
+.section-title{
+
+    font-size:30px;
+
+}
+
+.latin-motto{
+
+    font-size:19px;
+
+}
+
+.section-text{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+}
+
+
+
+/*=========================
+  Contact
+=========================*/
+
+.contact-grid{
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.company-address,
+
+.contact-information{
+
+    font-size:17px;
+
+}
+
+
+
+/*=========================
+  Info Box
+=========================*/
+
+.info-box{
+
+    padding:22px;
+
+}
+
+.info-box span{
+
+    display:block;
+
+    width:auto;
+
+    margin-bottom:5px;
+
+}
+
+
+
+/*=========================
+  Footer
+=========================*/
+
+.footer-title{
+
+    font-size:18px;
+
+    letter-spacing:2px;
+
+}
+
+}
+
+
+
+/*==================================================
+  14. LARGE SCREEN
+==================================================*/
+
+@media (min-width:1600px){
+
+.content-section{
+
+    max-width:1200px;
+
+}
+
+.company-description{
+
+    max-width:1300px;
+
+}
+
+}
+
+
+
+/*==================================================
+  15. ACCESSIBILITY
+==================================================*/
+
+@media (prefers-reduced-motion:reduce){
+
+*,
+*::before,
+*::after{
+
+    animation:none !important;
+
+    transition:none !important;
+
+    scroll-behavior:auto !important;
+
+}
+
+}
