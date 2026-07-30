@@ -1710,3 +1710,76 @@ translateY(0);
 }
 
 }
+/*==================================================
+  SCROLL REVEAL
+==================================================*/
+
+.reveal{
+
+opacity:0;
+
+transform:
+
+translateY(60px)
+
+scale(.98);
+
+filter:blur(6px);
+
+transition:
+
+opacity .9s cubic-bezier(.22,.61,.36,1),
+
+transform .9s cubic-bezier(.22,.61,.36,1),
+
+filter .9s ease;
+
+will-change:
+
+opacity,
+transform,
+filter;
+
+}
+
+
+.reveal.reveal-visible{
+
+opacity:1;
+
+transform:
+
+translateY(0)
+
+scale(1);
+
+filter:blur(0);
+
+}
+
+
+/* elegant stagger */
+
+.reveal-delay-1{
+
+transition-delay:.10s;
+
+}
+
+.reveal-delay-2{
+
+transition-delay:.20s;
+
+}
+
+.reveal-delay-3{
+
+transition-delay:.30s;
+
+}
+
+.reveal-delay-4{
+
+transition-delay:.40s;
+
+}
