@@ -1313,3 +1313,35 @@ font-size:12px;
 }
 
 }
+/*==================================================
+ ACTIVE PAGE
+==================================================*/
+
+.main-navigation a.active-page{
+
+background:
+
+linear-gradient(
+180deg,
+#D94F30,
+#C83E28);
+
+color:white;
+
+box-shadow:
+
+0 0 18px rgba(217,79,48,.35),
+
+0 10px 25px rgba(0,0,0,.25),
+
+inset 0 2px 2px rgba(255,255,255,.25);
+
+}
+
+.main-navigation a.active-page:hover{
+
+transform:
+translateY(-4px)
+scale(1.05);
+
+}
