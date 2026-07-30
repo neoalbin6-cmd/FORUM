@@ -1,0 +1,1315 @@
+/*==================================================
+  TAKUMI X MASTER DESIGN SYSTEM
+  PART 1
+==================================================*/
+
+/*=========================================
+    GOOGLE FONT FALLBACKS
+=========================================*/
+
+:root{
+
+/*=========================================
+    COLORS
+=========================================*/
+
+/* Japanese Lacquer */
+
+--clr-ink:#16181C;
+--clr-charcoal:#252A2E;
+--clr-graphite:#394147;
+
+/* Porcelain */
+
+--clr-paper:#FFFFFF;
+--clr-washi:#FAF8F3;
+--clr-mist:#F1F4F5;
+
+/* Forest */
+
+--clr-jade:#2F6B5F;
+--clr-bamboo:#4B7468;
+
+/* Vermilion */
+
+--clr-vermilion:#C84A3A;
+--clr-vermilion-dark:#A1362B;
+
+/* Titanium */
+
+--clr-titanium:#9CA5AC;
+--clr-silver:#D6DADD;
+
+/* Accent */
+
+--clr-gold:#A98A54;
+
+/* Text */
+
+--clr-heading:#1C242B;
+--clr-text:#3E464D;
+--clr-muted:#6C7378;
+
+/*=========================================
+    BACKGROUND
+=========================================*/
+
+--bg1:#DEE5E8;
+--bg2:#C6CED3;
+--bg3:#B0BBC3;
+--bg4:#E8ECEE;
+
+/*=========================================
+    SHADOWS
+=========================================*/
+
+--shadow-soft:
+0 10px 30px rgba(0,0,0,.08);
+
+--shadow-medium:
+0 18px 45px rgba(0,0,0,.12);
+
+--shadow-large:
+0 30px 70px rgba(0,0,0,.18);
+
+/*=========================================
+    RADIUS
+=========================================*/
+
+--radius-sm:10px;
+--radius-md:18px;
+--radius-lg:26px;
+--radius-xl:42px;
+
+/*=========================================
+    TRANSITIONS
+=========================================*/
+
+--transition:
+.45s cubic-bezier(.22,.61,.36,1);
+
+/*=========================================
+    CONTAINER
+=========================================*/
+
+--container:1200px;
+
+}
+
+/*=========================================
+    RESET
+=========================================*/
+
+*,
+*::before,
+*::after{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+overflow-x:hidden;
+
+padding-top:60px;
+padding-bottom:50px;
+
+font-family:
+"Noto Sans JP",
+"Segoe UI",
+sans-serif;
+
+color:var(--clr-text);
+
+/* Japanese architectural concrete */
+
+background:
+
+linear-gradient(
+180deg,
+
+#D2D9DE 0%,
+
+#C4CDD2 18%,
+
+#B7C2C9 40%,
+
+#CBD4D8 72%,
+
+#E7ECEE 100%);
+
+background-attachment:fixed;
+
+position:relative;
+
+}
+
+/*=========================================
+    ENGINEERING GRID
+=========================================*/
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+z-index:-2;
+
+/* extremely subtle */
+
+background:
+
+linear-gradient(
+rgba(255,255,255,.03) 1px,
+transparent 1px),
+
+linear-gradient(
+90deg,
+rgba(255,255,255,.03) 1px,
+transparent 1px),
+
+radial-gradient(
+circle at 18% 18%,
+rgba(200,74,58,.05),
+transparent 28%),
+
+radial-gradient(
+circle at 82% 70%,
+rgba(47,107,95,.05),
+transparent 32%);
+
+background-size:
+
+60px 60px,
+60px 60px,
+auto,
+auto;
+
+animation:
+
+engineeringFloat 24s ease-in-out infinite alternate;
+
+}
+
+/*=========================================
+    AMBIENT LIGHT
+=========================================*/
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+z-index:-1;
+
+filter:blur(120px);
+
+background:
+
+radial-gradient(
+circle at 18% 25%,
+rgba(255,255,255,.28),
+transparent 20%),
+
+radial-gradient(
+circle at 80% 18%,
+rgba(200,74,58,.10),
+transparent 24%),
+
+radial-gradient(
+circle at 75% 80%,
+rgba(47,107,95,.10),
+transparent 28%),
+
+radial-gradient(
+circle at 40% 65%,
+rgba(255,255,255,.22),
+transparent 25%);
+
+animation:
+
+ambientShift 18s ease-in-out infinite alternate;
+
+}
+/*==================================================
+  TAKUMI X MASTER
+  PART 2
+==================================================*/
+
+
+/*==================================================
+  MAIN NAVIGATION
+==================================================*/
+
+.main-navigation{
+
+position:fixed;
+top:0;
+left:0;
+
+width:100%;
+height:64px;
+
+display:flex;
+align-items:center;
+justify-content:flex-start;
+gap:18px;
+
+padding-inline:32px;
+
+z-index:9999;
+
+background:
+
+linear-gradient(
+180deg,
+#1C2023 0%,
+#24292D 40%,
+#2D3438 100%);
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+box-shadow:
+
+0 12px 35px rgba(0,0,0,.35),
+inset 0 1px 0 rgba(255,255,255,.08);
+
+backdrop-filter:blur(14px);
+
+overflow:hidden;
+
+}
+
+
+/* animated moving light */
+
+.main-navigation::before{
+
+content:"";
+
+position:absolute;
+
+inset:-50%;
+
+background:
+
+linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,.05),
+transparent);
+
+animation:
+
+navigationLight 8s linear infinite;
+
+}
+
+
+/*==================================================
+ NAVIGATION BUTTONS
+==================================================*/
+
+.main-navigation a{
+
+position:relative;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+width:125px;
+height:42px;
+
+overflow:hidden;
+
+font-family:"Noto Sans JP",sans-serif;
+
+font-size:14px;
+
+font-weight:700;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+color:#1F2428;
+
+background:
+
+linear-gradient(
+180deg,
+#FFFFFF,
+#F8F8F8,
+#ECECEC);
+
+border-radius:50px;
+
+border:1px solid rgba(255,255,255,.95);
+
+box-shadow:
+
+0 4px 10px rgba(0,0,0,.18),
+
+inset 0 2px 2px rgba(255,255,255,.95),
+
+inset 0 -3px 5px rgba(0,0,0,.08);
+
+transition:var(--transition);
+
+}
+
+
+/* metallic reflection */
+
+.main-navigation a::before{
+
+content:"";
+
+position:absolute;
+
+top:-120%;
+left:-80%;
+
+width:40%;
+height:300%;
+
+background:
+
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.95),
+transparent);
+
+transform:rotate(25deg);
+
+transition:1s;
+
+}
+
+.main-navigation a:hover::before{
+
+left:170%;
+
+}
+
+
+/* glowing border */
+
+.main-navigation a::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+border-radius:50px;
+
+box-shadow:
+
+inset 0 1px 2px rgba(255,255,255,.9),
+
+0 0 0 rgba(0,0,0,0);
+
+transition:.5s;
+
+}
+
+
+/* hover */
+
+.main-navigation a:hover{
+
+transform:
+
+translateY(-6px)
+
+scale(1.06);
+
+background:
+
+linear-gradient(
+180deg,
+#FFFFFF,
+#F6F6F6,
+#EAEAEA);
+
+box-shadow:
+
+0 18px 28px rgba(0,0,0,.28),
+
+0 0 18px rgba(47,107,95,.25),
+
+inset 0 2px 3px rgba(255,255,255,.95);
+
+}
+
+
+/* click */
+
+.main-navigation a:active{
+
+transform:
+
+translateY(2px)
+
+scale(.97);
+
+}
+
+
+/*==================================================
+ HEADER
+==================================================*/
+
+.site-header{
+
+position:relative;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+padding:50px 20px;
+
+background:
+
+linear-gradient(
+180deg,
+#F9F8F6,
+#EFECE7);
+
+border-bottom:1px solid rgba(0,0,0,.08);
+
+box-shadow:
+
+0 15px 35px rgba(0,0,0,.10);
+
+overflow:hidden;
+
+}
+
+
+/* engineering light */
+
+.site-header::before{
+
+content:"";
+
+position:absolute;
+
+top:-100%;
+left:-30%;
+
+width:70%;
+height:300%;
+
+background:
+
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.55),
+transparent);
+
+transform:rotate(22deg);
+
+animation:
+
+headerSweep 10s linear infinite;
+
+}
+
+
+.header-container{
+
+position:relative;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+
+z-index:2;
+
+}
+
+
+/*==================================================
+ COMPANY NAME
+==================================================*/
+
+.company-name{
+
+font-family:
+
+"Noto Serif JP",
+serif;
+
+font-size:
+
+clamp(2.3rem,4vw,3.5rem);
+
+font-weight:700;
+
+letter-spacing:8px;
+
+text-transform:uppercase;
+
+color:#212529;
+
+text-shadow:
+
+0 2px 0 rgba(255,255,255,.95),
+
+0 8px 18px rgba(0,0,0,.12);
+
+animation:
+
+titleFloat 5s ease-in-out infinite;
+
+}
+
+
+/*==================================================
+ DIVIDER
+==================================================*/
+
+.header-divider{
+
+width:340px;
+height:2px;
+
+margin:16px 0;
+
+border-radius:30px;
+
+background:
+
+linear-gradient(
+90deg,
+
+transparent,
+
+#C84A3A,
+
+#A98A54,
+
+#2F6B5F,
+
+transparent);
+
+box-shadow:
+
+0 0 10px rgba(169,138,84,.25);
+
+}
+
+
+/*==================================================
+ TAGLINE
+==================================================*/
+
+.company-tagline{
+
+font-family:
+
+"Noto Sans JP",
+sans-serif;
+
+font-size:17px;
+
+font-weight:500;
+
+letter-spacing:6px;
+
+text-transform:uppercase;
+
+color:#5A6268;
+
+}
+
+
+/*==================================================
+ COMPANY OVERVIEW
+==================================================*/
+
+.company-overview{
+
+position:relative;
+
+overflow:hidden;
+
+padding:26px 50px;
+
+background:
+
+linear-gradient(
+90deg,
+
+#2F3438,
+
+#3A4146,
+
+#50585E,
+
+#3A4146,
+
+#2F3438);
+
+box-shadow:
+
+0 10px 25px rgba(0,0,0,.22);
+
+}
+
+
+/* moving highlight */
+
+.company-overview::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-160%;
+
+width:70%;
+height:100%;
+
+background:
+
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.08),
+transparent);
+
+transform:skewX(-25deg);
+
+animation:
+
+overviewLight 7s linear infinite;
+
+}
+
+
+/*==================================================
+ DESCRIPTION
+==================================================*/
+
+.company-description{
+
+position:relative;
+
+max-width:1200px;
+
+margin:auto;
+
+font-family:"Noto Sans JP",sans-serif;
+
+font-size:22px;
+
+font-weight:500;
+
+line-height:2;
+
+text-align:center;
+
+color:#FFFFFF;
+
+text-shadow:
+
+0 2px 4px rgba(0,0,0,.25);
+
+z-index:2;
+
+}
+/*==================================================
+ TAKUMI X MASTER
+ PART 3
+==================================================*/
+
+
+/*==================================================
+ CONTENT SECTION
+==================================================*/
+
+.content-section{
+
+position:relative;
+
+overflow:hidden;
+
+max-width:1100px;
+
+margin:70px auto;
+
+padding:50px;
+
+background:
+linear-gradient(
+145deg,
+#FFFFFF,
+#FCFCFC,
+#F7F7F7);
+
+border:1px solid rgba(255,255,255,.95);
+
+border-radius:24px;
+
+box-shadow:
+
+-18px -18px 36px rgba(255,255,255,.95),
+
+20px 20px 45px rgba(0,0,0,.12),
+
+0 10px 30px rgba(0,0,0,.08),
+
+inset 0 2px 4px rgba(255,255,255,.95);
+
+transition:all .6s cubic-bezier(.22,.61,.36,1);
+
+}
+
+
+/* floating reflection */
+
+.content-section::before{
+
+content:"";
+
+position:absolute;
+
+top:-50%;
+
+left:-150%;
+
+width:70%;
+
+height:220%;
+
+background:
+
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.45),
+transparent);
+
+transform:rotate(25deg);
+
+transition:1.5s;
+
+}
+
+.content-section:hover::before{
+
+left:170%;
+
+}
+
+
+/* precision corner */
+
+.content-section::after{
+
+content:"";
+
+position:absolute;
+
+top:20px;
+
+right:20px;
+
+width:28px;
+
+height:28px;
+
+border-top:2px solid rgba(200,74,58,.25);
+
+border-right:2px solid rgba(47,107,95,.25);
+
+}
+
+
+/* hover */
+
+.content-section:hover{
+
+transform:
+
+translateY(-14px)
+
+scale(1.02);
+
+box-shadow:
+
+-20px -20px 40px rgba(255,255,255,.98),
+
+25px 25px 55px rgba(0,0,0,.16),
+
+0 25px 50px rgba(0,0,0,.10);
+
+}
+
+
+/*==================================================
+ TITLES
+==================================================*/
+
+.section-title{
+
+font-family:
+
+"Noto Serif JP",
+serif;
+
+font-size:38px;
+
+font-weight:700;
+
+letter-spacing:3px;
+
+margin-bottom:20px;
+
+padding-left:22px;
+
+border-left:6px solid var(--clr-vermilion);
+
+color:var(--clr-heading);
+
+position:relative;
+
+}
+
+.section-title::after{
+
+content:"";
+
+position:absolute;
+
+bottom:-8px;
+
+left:22px;
+
+width:120px;
+
+height:2px;
+
+background:
+
+linear-gradient(
+90deg,
+var(--clr-vermilion),
+var(--clr-jade));
+
+}
+
+
+/*==================================================
+ LATIN MOTTO
+==================================================*/
+
+.latin-motto{
+
+font-family:
+
+"Noto Serif JP",
+serif;
+
+font-size:22px;
+
+font-style:italic;
+
+text-align:center;
+
+margin:22px 0;
+
+color:#666;
+
+letter-spacing:1px;
+
+}
+
+
+/*==================================================
+ BODY TEXT
+==================================================*/
+
+.section-text{
+
+font-family:
+
+"Noto Sans JP",
+sans-serif;
+
+font-size:20px;
+
+line-height:2.1;
+
+text-align:justify;
+
+color:#454C52;
+
+}
+
+
+/*==================================================
+ CONTACT GRID
+==================================================*/
+
+.contact-grid{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:80px;
+
+margin-top:30px;
+
+}
+
+.company-address,
+.contact-information{
+
+font-size:19px;
+
+line-height:2;
+
+color:#444;
+
+}
+
+
+.contact-information a{
+
+color:var(--clr-jade);
+
+font-weight:600;
+
+transition:.35s;
+
+}
+
+.contact-information a:hover{
+
+color:var(--clr-vermilion);
+
+padding-left:8px;
+
+}
+
+
+.contact-label{
+
+color:var(--clr-vermilion);
+
+font-weight:700;
+
+}
+
+
+/*==================================================
+ INFO BOX
+==================================================*/
+
+.info-box{
+
+padding:34px;
+
+border-radius:20px;
+
+background:
+
+linear-gradient(
+145deg,
+#24292D,
+#30363B,
+#3A4248);
+
+border-left:5px solid var(--clr-vermilion);
+
+box-shadow:0 18px 45px rgba(0,0,0,.30);
+
+}
+
+.info-box p{
+
+color:white;
+
+margin:15px 0;
+
+}
+
+.info-box span{
+
+color:#DDBA74;
+
+font-weight:700;
+
+}
+
+
+/*==================================================
+ FOOTER
+==================================================*/
+
+.site-footer{
+
+position:fixed;
+
+left:0;
+
+bottom:0;
+
+width:100%;
+
+height:42px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:
+
+linear-gradient(
+180deg,
+#1C2023,
+#2D3438);
+
+border-top:1px solid rgba(255,255,255,.08);
+
+box-shadow:
+
+0 -10px 25px rgba(0,0,0,.35);
+
+}
+
+.footer-title{
+
+font-family:
+
+"Noto Serif JP",
+serif;
+
+font-size:20px;
+
+letter-spacing:6px;
+
+color:white;
+
+}
+
+
+/*==================================================
+ PREMIUM ANIMATIONS
+==================================================*/
+
+@keyframes engineeringFloat{
+
+0%{
+
+transform:
+translateY(0);
+
+}
+
+50%{
+
+transform:
+translateY(-20px);
+
+}
+
+100%{
+
+transform:
+translateY(10px);
+
+}
+
+}
+
+
+@keyframes ambientShift{
+
+0%{
+
+transform:
+translate(-40px,-20px);
+
+}
+
+50%{
+
+transform:
+translate(20px,30px);
+
+}
+
+100%{
+
+transform:
+translate(-10px,40px);
+
+}
+
+}
+
+
+@keyframes navigationLight{
+
+from{
+
+transform:
+translateX(-120%) rotate(12deg);
+
+}
+
+to{
+
+transform:
+translateX(220%) rotate(12deg);
+
+}
+
+}
+
+
+@keyframes headerSweep{
+
+from{
+
+left:-120%;
+
+}
+
+to{
+
+left:180%;
+
+}
+
+}
+
+
+@keyframes overviewLight{
+
+from{
+
+left:-160%;
+
+}
+
+to{
+
+left:180%;
+
+}
+
+}
+
+
+@keyframes titleFloat{
+
+0%{
+
+transform:
+translateY(0);
+
+}
+
+50%{
+
+transform:
+translateY(-3px);
+
+}
+
+100%{
+
+transform:
+translateY(0);
+
+}
+
+}
+
+
+/*==================================================
+ RESPONSIVE
+==================================================*/
+
+@media(max-width:768px){
+
+.content-section{
+
+margin:25px 15px;
+
+padding:28px;
+
+}
+
+.contact-grid{
+
+grid-template-columns:1fr;
+
+gap:30px;
+
+}
+
+.section-title{
+
+font-size:30px;
+
+}
+
+.company-description{
+
+font-size:18px;
+
+}
+
+.main-navigation{
+
+justify-content:center;
+
+padding-inline:8px;
+
+gap:8px;
+
+}
+
+.main-navigation a{
+
+width:82px;
+
+font-size:12px;
+
+}
+
+}
